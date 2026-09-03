@@ -1,0 +1,43 @@
+---
+title: Games Engine Construction
+subtitle: 
+author: Julien Cordry
+theme: "Antibes"
+colortheme: "seagull"
+fonttheme: "structuresmallcapsserif"
+---
+
+# Introduction
+
+---
+
+## Previously
+
+---
+
+## Today
+
+---
+
+# Conclusion
+
+---
+
+## We discussed
+
+---
+
+## Next time
+
+---
+
+## Any questions?
+
+**Tutor**: Julien Cordry
+
+**Email**: j.cordry@tees.ac.uk
+
+**Office**: G0.46B
+
+See Blackboard for online materials:
+[***https://bb.tees.ac.uk***](https://bb.tees.ac.uk)
