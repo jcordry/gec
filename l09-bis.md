@@ -13,6 +13,9 @@ fonttheme: "structuresmallcapsserif"
 
 ## Previously
 
+- Vectors
+- ECS Intro
+
 ---
 
 ## This Week
@@ -432,7 +435,7 @@ When checking pixel transparency:
 
 - Use the correct frame rectangle.
 - Convert to the correct atlas coordinates.
-- Do not read pixels from a neighboring frame.
+- Do not read pixels from a neighbouring frame.
 
 ---
 
@@ -504,12 +507,12 @@ Start with a correct implementation before optimizing.
 
 ## Choosing the right method
 
-| Method | Best Use |
-| --- | --- |
-| Distance | Circular objects |
-| AABB | Fast general checks |
-| Simple shapes | Predictable gameplay |
-| Pixel-perfect | Irregular silhouettes |
+| Method             | Best Use                 |
+| ---                | ---                      |
+| Distance           | Circular objects         |
+| AABB               | Fast general checks      |
+| Simple shapes      | Predictable gameplay     |
+| Pixel-perfect      | Irregular silhouettes    |
 | Dedicated hitboxes | Precise gameplay control |
 
 No single method is best for every game.
@@ -528,7 +531,6 @@ class Collider
 public:
     virtual bool intersects(
         const Collider& other) const = 0;
-
     virtual ~Collider() = default;
 };
 ```
@@ -576,9 +578,14 @@ Add more advanced features only when required.
 
 ## We discussed
 
+- Milestone 3
+- Collisions
+
 ---
 
 ## Next time
+
+- Explosions and bullets
 
 ---
 
