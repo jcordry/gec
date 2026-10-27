@@ -13,15 +13,16 @@ fonttheme: "structuresmallcapsserif"
 
 ## Previously
 
-- Vectors
-- ECS Intro
+- Vectors.
+- ECS Intro.
 
 ---
 
 ## This Week
 
-- Milestone 3
-- Pixel Perfect Collisions
+- Milestone 3.
+- Collisions in general.
+- Pixel Perfect Collisions.
 
 ---
 
@@ -46,12 +47,12 @@ fonttheme: "structuresmallcapsserif"
   2D game. This should meet the following requirements:
    - Realisation of an entity,
    - Pixel Perfect Collisions OR Colliders,
-   - World system .
+   - World system.
 - The 1st and 3rd are the same really, just need an
   entity held in a world class .
-- Quite a lot to do, will need a lot of code rearrangement from main into
-  world .
-- But the result is a solid foundation for your game demo .
+- Quite a lot to do, will need a lot of code rearrangement from `main` into
+  `world`.
+- But the result is a solid foundation for your game demo.
 
 ---
 
@@ -232,6 +233,94 @@ This can produce a more accurate visual match.
 
 ---
 
+## Pixel Perfect Collisions
+
+- To determine pixel perfect collisions, we need to
+   - Initially carry out a rectangle collision test
+   - Determine the collision rectangle in both colliders
+   - Step through the rectangles (they must be the same size) and compare
+     alpha values
+- A potentially more efficient way may be to
+   - Do a pre-process of textures determining a collision mask
+   - Can be packed into a bitfield with `0=passable` and `1=solid`
+   - This was the original way used but it is a bit of a pain doing the
+     packing and unpacking and probably has negligible performance gain
+     nowadays
+
+![](img/boxCollisionAlpha.png)
+
+---
+
+## Pixel Perfect
+
+- Given this scenario
+
+![](img/boxCollision1.png)
+
+- *After* doing the basic rectangle test, determine the rectangle of
+  collision:
+  - This will be in screen space.
+
+---
+
+- Transform it into each entities' texture space:
+  - Simply translate by - entity position.
+  - Consider any frame offset as different frames will have different
+    collision areas.
+
+![](img/boxCollision2.png)
+
+---
+
+## Pixel Perfect
+
+- Then work out start offsets and line offsets
+- Then loop through both areas
+- As soon as both have a transparency above a cut off then a collision has
+  occurred:
+    - E.g. transparency of > 10 = collision - can tweak to taste
+
+---
+
+## Ingredients
+
+- We will need:
+    - To know the frame rectangle for both sprite at a particular frame number
+      using a particular frame set
+    - To be able to translate these to screen space and generate an
+      intersection rectangle
+    - Be able to read the raw texel data of the image
+    - To be able to map this intersection rectangle into the texture space and
+      get an offset into the image
+    - Traverse both images checking when both pixels have an alpha value over
+      a set amount
+
+---
+
+## Expanded
+
+- To work out the intersection rectangle you can
+   - Extract left as the maximum of the two, right as the minimum
+   - Top as the max and bottom as the min
+- Possible rectangle functions:
+   - Rectangle
+
+   ```cpp
+   GetIntersectionWith(const Rectangle &other)
+   Translate(int dx, int dy)
+   ```
+- To get access to the raw pixel data in SFML:
+  - Create an `sf::Image` type and load the texture into that
+    - Best do at load time (same time you are loading a texture)
+  - Can then access the raw texels via:
+
+  ```cpp
+  Image::GetPixelsPtr
+  ```
+  - It returns an array of bytes with 4 bytes per texel (RGBA)
+
+---
+
 ## Alpha and transparency
 
 An RGBA pixel contains:
@@ -390,6 +479,17 @@ Split collision detection into two stages.
 - Use pixel-perfect collision only when needed.
 
 This avoids unnecessary pixel comparisons.
+
+---
+
+## Platformer Collisions
+
+- With platform games you need to know the direction of travel when
+  determining collisions
+- One method is to use several different points on the entity to test for
+  collision e.g.:
+
+![](img/mario.png)
 
 ---
 
