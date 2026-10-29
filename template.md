@@ -35,9 +35,9 @@ fonttheme: "structuresmallcapsserif"
 
 **Tutor**: Julien Cordry
 
-**Email**: j.cordry@tees.ac.uk
+**Email**: [[***j.cordry@tees.ac.uk***]{.underline}](mailto:j.cordry@tees.ac.uk)
 
 **Office**: G0.46B
 
 See Blackboard for online materials:
-[***https://bb.tees.ac.uk***](https://bb.tees.ac.uk)
+[[***https://bb.tees.ac.uk***]{.underline}](https://bb.tees.ac.uk)
