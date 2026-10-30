@@ -1,0 +1,4 @@
+@startuml
+World "1" -right- "1" Map
+Map "1" -down- "*" Tile
+@enduml
