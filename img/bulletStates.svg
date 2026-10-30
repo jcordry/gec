@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     inkscape:zoom="3.8031679"
-     inkscape:cx="378.76319"
-     inkscape:cy="259.65196"
+     inkscape:zoom="1.9015839"
+     inkscape:cx="421.49073"
+     inkscape:cy="154.87089"
      inkscape:window-width="2560"
      inkscape:window-height="1369"
      inkscape:window-x="2552"
@@ -156,6 +156,9 @@
     <path
        style="fill:none;stroke-width:0.765;stroke:#000000;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Triangle)"
        d="M 55,50 C 32.210539,50 38.541335,96.815493 94.683674,64.999999"
-       id="path3" />
+       id="path3"
+       inkscape:export-filename="bulletStates.png"
+       inkscape:export-xdpi="192"
+       inkscape:export-ydpi="192" />
   </g>
 </svg>
