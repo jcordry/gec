@@ -1,0 +1,16 @@
+@startuml
+
+class WorldEntityPlayer
+class WorldEntityEnemy
+class WorldEntityBullet
+abstract class WorldEntity
+class WorldModel
+
+
+WorldEntityPlayer -up-|> WorldEntity
+WorldEntityEnemy -up-|> WorldEntity
+WorldEntityBullet -up-|> WorldEntity
+WorldEntityPlayer -up-> WorldModel
+WorldModel "1" -right-o "*" WorldEntity : contains >
+
+@enduml
