@@ -1,0 +1,13 @@
+@startuml
+abstract class Entity {
+  + update()
+  + draw()
+}
+ConcreteEntity -up-|> Entity
+abstract class Creator {
+  + factoryMethod(): Entity
+}
+class ConcreteCreator
+ConcreteCreator -up-|> Creator
+ConcreteCreator .right.> ConcreteEntity
+@enduml
