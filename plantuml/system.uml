@@ -1,0 +1,12 @@
+@startuml
+Entity "*" -up- "1" World
+Player -up-|> Entity
+Enemy -up-|> Entity
+Bullet -up-|> Entity
+Explosion -up-|> Entity
+Sprite "*" -up- "1" Graphics
+class Vector
+class Rectangle
+abstract class Entity
+World .right.> Graphics
+@enduml
